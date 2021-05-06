@@ -1,0 +1,17 @@
+---
+shared:
+  image: node
+jobs:
+  #  Validate template
+  validate_templates:
+    requires: [~pr, ~commit]
+    steps:
+      - install_prerequisites: npm install -g screwdriver-template-main
+      - validate_default_template: template-validate
+  #  Publish and tag the template
+  publish_default_template:
+    requires: [validate_templates]
+    steps:
+      - install_prerequisites: npm install -g screwdriver-template-main
+      - publish:  template-publish
+      - autotag: template-tag --name bolbeck/goinit --tag latest
