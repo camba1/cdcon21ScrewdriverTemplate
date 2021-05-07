@@ -9,7 +9,7 @@ config:
     # This step downloads and installs packages and dependencies
     - get: go mod download
     #      # The "vet" step runs the go tool vet on packages
-    - vet: go vet ./...
+    - vet: go vet -x ./...
     #      # This step runs gofmt on package resources
     - gofmt: "find . -name '*.go' | xargs gofmt -s -w"
     #      # The "test" step tests the packages
