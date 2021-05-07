@@ -7,7 +7,7 @@ config:
   image: golang
   steps:
     # This step downloads and installs packages and dependencies
-    - get: go get -t ./...
+    - get: go mod download
     #      # The "vet" step runs the go tool vet on packages
     - vet: go vet ./...
     #      # This step runs gofmt on package resources
