@@ -4,7 +4,7 @@ version: "1"
 description: Template to prepare code to be built in Go
 maintainer: foo@bar.com
 config:
-  image: node:8
+  image: golang
   steps:
     # This step downloads and installs packages and dependencies
     - get: go get -t ./...
